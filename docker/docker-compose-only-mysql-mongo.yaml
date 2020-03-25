@@ -22,15 +22,15 @@ services:
     volumes:
       - my-db:/var/lib/mysql
 
-#  mongodb_container:
-#    image: mongo:latest
-#    environment:
-#      MONGO_INITDB_ROOT_USERNAME: eric
-#      MONGO_INITDB_ROOT_PASSWORD: eric
-#    ports:
-#      - 27017:27017
-#    volumes:
-#      - mongodb_data_container:/data/db
+  mongodb_container:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: eric
+      MONGO_INITDB_ROOT_PASSWORD: eric
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
 # Names our volume
 volumes:
   my-db:
