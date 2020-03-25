@@ -75,7 +75,7 @@ public class PhotoServiceImpl implements PhotoService {
 
     @Override
     public List<Photo> findByUsernamesAndPhotoType(List<String> usernames, PhotoType type) {
-        List<Photo> res = dao.findByUsernameAndPhotoTypeOrderByIdDesc(usernames, type);
+        List<Photo> res = dao.findByUsernameInAndPhotoTypeOrderByIdDesc(usernames, type);
         return ArrayUtil.parse(res);
     }
 
@@ -97,7 +97,7 @@ public class PhotoServiceImpl implements PhotoService {
 
     @Override
     public boolean deleteAllPhoto(String username, File photoDir) {
-        List<Photo> items = dao.findByUsernameAndPhotoTypeOrderByCollectDateDesc(Collections.singletonList(username), PhotoType.Normal);
+        List<Photo> items = dao.findByUsernameInAndPhotoTypeOrderByCollectDateDesc(Collections.singletonList(username), PhotoType.Normal);
 
         for (Photo p : items) {
             File photoFile = new File(photoDir, p.getPhotoName());

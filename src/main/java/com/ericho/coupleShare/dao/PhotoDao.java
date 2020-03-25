@@ -15,9 +15,9 @@ public interface PhotoDao extends JpaRepository<Photo, Integer> {
 
 	List<Photo> findByUsernameInOrderByIdDesc(List<String> usernames);
 
-	List<Photo> findByUsernameAndPhotoTypeOrderByCollectDateDesc(List<String> usernames, PhotoType type);
+	List<Photo> findByUsernameInAndPhotoTypeOrderByCollectDateDesc(List<String> usernames, PhotoType type);
 
-	List<Photo> findByUsernameAndPhotoTypeOrderByIdDesc(List<String> usernames, PhotoType type);
+	List<Photo> findByUsernameInAndPhotoTypeOrderByIdDesc(List<String> usernames, PhotoType type);
 
 	//	@Query("select p from photo p where username = ?1,uuid = ?2")
 	List<Photo> findByUsernameAndUuid(String username, String uuid);

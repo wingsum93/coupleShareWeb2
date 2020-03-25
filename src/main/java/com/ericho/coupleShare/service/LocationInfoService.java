@@ -1,8 +1,8 @@
 package com.ericho.coupleShare.service;
 
-import java.util.List;
-
 import com.ericho.coupleShare.model.LocationInfo;
+
+import java.util.List;
 
 public interface LocationInfoService {
 	LocationInfo findById(Long id);
