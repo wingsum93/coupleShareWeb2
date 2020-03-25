@@ -2,14 +2,15 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
 	id("org.springframework.boot") version "2.2.5.RELEASE"
-	id("io.spring.dependency-management") version "1.0.9.RELEASE"
-	kotlin("jvm") version "1.3.71"
-	kotlin("plugin.spring") version "1.3.71"
-	kotlin("plugin.jpa") version "1.3.71"
+    id("io.spring.dependency-management") version "1.0.9.RELEASE"
+    java
+    kotlin("jvm") version "1.3.71"
+    kotlin("plugin.spring") version "1.3.71"
+    kotlin("plugin.jpa") version "1.3.71"
 }
 
 group = "com.ericho"
-version = "0.0.1-SNAPSHOT"
+version = "1.0.1"
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
