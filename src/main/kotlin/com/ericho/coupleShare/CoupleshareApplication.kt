@@ -4,7 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication(
-		scanBasePackages = ["com.ericho.*"]
+		scanBasePackages = ["com.ericho"]
 )
 class CoupleShareApplication
 

@@ -18,14 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ericho.coupleShare.mobile.BaseResponse;
@@ -49,7 +42,7 @@ import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
-@Controller
+@RestController
 @RequestMapping("/api")
 public class ApiController {
     Log log = LogFactory.getLog(ApiController.class);
@@ -213,7 +206,7 @@ public class ApiController {
     
     /**
      * get the list ob photo object can be view by that users
-     * @param json
+     * @param
      * @return
      */
     @RequestMapping(path = "/getPhotoList",method = RequestMethod.GET)
