@@ -16,8 +16,8 @@ import com.ericho.coupleShare.util.SecurityUtil
 import com.google.gson.GsonBuilder
 import com.google.gson.JsonDeserializer
 import org.apache.commons.io.IOUtils
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+import org.apache.logging.log4j.LogManager
+import org.apache.logging.log4j.Logger
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.http.MediaType
@@ -34,7 +34,7 @@ import java.util.*
 @RequestMapping("/api")
 class ApiController {
     //    var log = LogFactory.getLog(ApiController::class.java)
-    private val log: Logger = LoggerFactory.getLogger(this.javaClass)
+    private val log: Logger = LogManager.getLogger(this.javaClass)
 
     private val gson = GsonBuilder().setDateFormat(DateFormat.LONG)
             .registerTypeAdapter(Date::class.java, JsonDeserializer { json, typeOfT, context -> Date(json.asJsonPrimitive.asLong) }).create()
