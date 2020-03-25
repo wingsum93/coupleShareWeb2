@@ -3,29 +3,35 @@ package com.ericho.coupleShare.service;
 import com.ericho.coupleShare.dao.StatusNoticeDao;
 import com.ericho.coupleShare.model.StatusNotice;
 import com.ericho.coupleShare.util.ArrayUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
 
 @Service()
-public class StatusNoticeServiceImpl implements StatusNoticeService{
+public class StatusNoticeServiceImpl implements StatusNoticeService {
 
-	@Autowired
-	private StatusNoticeDao dao;
-	
-	@Autowired
-	private PhotoService photoService;
+	public static final Logger logger = LoggerFactory.getLogger(StatusNoticeServiceImpl.class);
+
+	private final StatusNoticeDao dao;
+
+	private final PhotoService photoService;
+
+	public StatusNoticeServiceImpl(StatusNoticeDao dao, PhotoService photoService) {
+		this.dao = dao;
+		this.photoService = photoService;
+	}
 
 	@Override
 	public List<StatusNotice> getStatusList(String username) {
 		List<StatusNotice> list = dao.findByLatestUsername(Collections.singletonList(username));
-		
-		if(ArrayUtil.isNullOrEmpty(list)){
+
+		if (ArrayUtil.isNullOrEmpty(list)) {
 			return Collections.emptyList();
-		}else{
-		
+		} else {
+
 			return Collections.singletonList(list.get(0));
 		}
 		
